@@ -29,13 +29,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NTUAuth : NSObject {
+@interface JONTUAuth : NSObject {
     NSMutableArray *cookies;
     NSString *user;
     NSString *pass;
     NSString *domain;
-	NSString *studentid;
-	BOOL auth;
+    NSString *studentid;
+    BOOL auth;
 }
 
 @property (readonly) NSMutableArray *cookies;

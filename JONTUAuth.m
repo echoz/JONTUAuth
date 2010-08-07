@@ -27,12 +27,12 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "NTUAuth.h"
+#import "JONTUAuth.h"
 
 #define HTTP_USER_AGENT @"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us) AppleWebKit/533.4+ (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7"
 #define AUTH_URL @"https://sso.wis.ntu.edu.sg/webexe88/owa/sso.asp"
 
-@implementation NTUAuth
+@implementation JONTUAuth
 
 @synthesize cookies, user, pass, domain, studentid;
 
