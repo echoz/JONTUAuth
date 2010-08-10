@@ -1,0 +1,252 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3FAA36AA12115A1D00F26779 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAA36A912115A1D00F26779 /* Foundation.framework */; };
+		3FAA36AC12115A1D00F26779 /* JONTUAuth.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FAA36AB12115A1D00F26779 /* JONTUAuth.1 */; };
+		3FAA36AE12115A1D00F26779 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA36AD12115A1D00F26779 /* main.m */; };
+		3FAA36B812115A3400F26779 /* JONTUAuth.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FAA36B612115A3400F26779 /* JONTUAuth.h */; };
+		3FAA36B912115A3400F26779 /* JONTUAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA36B712115A3400F26779 /* JONTUAuth.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3FAA36A312115A1C00F26779 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				3FAA36AC12115A1D00F26779 /* JONTUAuth.1 in CopyFiles */,
+				3FAA36B812115A3400F26779 /* JONTUAuth.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3FAA36A512115A1C00F26779 /* JONTUAuth */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JONTUAuth; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FAA36A912115A1D00F26779 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3FAA36AB12115A1D00F26779 /* JONTUAuth.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = JONTUAuth.1; sourceTree = "<group>"; };
+		3FAA36AD12115A1D00F26779 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3FAA36B012115A1D00F26779 /* JONTUAuth_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JONTUAuth_Prefix.pch; sourceTree = "<group>"; };
+		3FAA36B612115A3400F26779 /* JONTUAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JONTUAuth.h; path = /Users/jeremy/Desktop/JONTUAuth/JONTUAuth.h; sourceTree = "<absolute>"; };
+		3FAA36B712115A3400F26779 /* JONTUAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JONTUAuth.m; path = /Users/jeremy/Desktop/JONTUAuth/JONTUAuth.m; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FAA36A212115A1C00F26779 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FAA36AA12115A1D00F26779 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FAA369812115A1C00F26779 = {
+			isa = PBXGroup;
+			children = (
+				3FAA36BA12115A3A00F26779 /* Classes */,
+				3FAA369F12115A1C00F26779 /* Source */,
+				3FAA36A012115A1C00F26779 /* Documentation */,
+				3FAA36A612115A1C00F26779 /* Products */,
+				3FAA36A812115A1D00F26779 /* Frameworks */,
+				3FAA36AF12115A1D00F26779 /* Other Sources */,
+			);
+			sourceTree = "<group>";
+		};
+		3FAA369F12115A1C00F26779 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3FAA36AD12115A1D00F26779 /* main.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		3FAA36A012115A1C00F26779 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				3FAA36AB12115A1D00F26779 /* JONTUAuth.1 */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+		3FAA36A612115A1C00F26779 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FAA36A512115A1C00F26779 /* JONTUAuth */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FAA36A812115A1D00F26779 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FAA36A912115A1D00F26779 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3FAA36AF12115A1D00F26779 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3FAA36B012115A1D00F26779 /* JONTUAuth_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		3FAA36BA12115A3A00F26779 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3FAA36B612115A3400F26779 /* JONTUAuth.h */,
+				3FAA36B712115A3400F26779 /* JONTUAuth.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3FAA36A412115A1C00F26779 /* JONTUAuth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FAA36B312115A1D00F26779 /* Build configuration list for PBXNativeTarget "JONTUAuth" */;
+			buildPhases = (
+				3FAA36A112115A1C00F26779 /* Sources */,
+				3FAA36A212115A1C00F26779 /* Frameworks */,
+				3FAA36A312115A1C00F26779 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JONTUAuth;
+			productName = JONTUAuth;
+			productReference = 3FAA36A512115A1C00F26779 /* JONTUAuth */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FAA369A12115A1C00F26779 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 3FAA369D12115A1C00F26779 /* Build configuration list for PBXProject "JONTUAuth" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3FAA369812115A1C00F26779;
+			productRefGroup = 3FAA36A612115A1C00F26779 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FAA36A412115A1C00F26779 /* JONTUAuth */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3FAA36A112115A1C00F26779 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FAA36AE12115A1D00F26779 /* main.m in Sources */,
+				3FAA36B912115A3400F26779 /* JONTUAuth.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3FAA36B112115A1D00F26779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		3FAA36B212115A1D00F26779 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		3FAA36B412115A1D00F26779 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JONTUAuth_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = JONTUAuth;
+			};
+			name = Debug;
+		};
+		3FAA36B512115A1D00F26779 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = JONTUAuth_Prefix.pch;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = JONTUAuth;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FAA369D12115A1C00F26779 /* Build configuration list for PBXProject "JONTUAuth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FAA36B112115A1D00F26779 /* Debug */,
+				3FAA36B212115A1D00F26779 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FAA36B312115A1D00F26779 /* Build configuration list for PBXNativeTarget "JONTUAuth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FAA36B412115A1D00F26779 /* Debug */,
+				3FAA36B512115A1D00F26779 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3FAA369A12115A1C00F26779 /* Project object */;
+}
