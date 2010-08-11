@@ -35,6 +35,8 @@
     NSString *pass;
     NSString *domain;
     NSString *studentid;
+	NSString *secretToken;
+	NSMutableData *syncRecvData;
     BOOL auth;
 }
 
@@ -42,9 +44,10 @@
 @property (nonatomic, retain) NSString *user;
 @property (nonatomic, retain) NSString *pass;
 @property (nonatomic, retain) NSString *domain;
-@property (nonatomic, retain) NSString *studentid;
+@property (readonly) NSString *studentid;
 -(BOOL)auth;
 -(BOOL)authWithRefresh:(BOOL)refresh;
--(NSData *) sendAsyncXHRToURL:(NSString *)url PostValues:(NSDictionary *)postValues;
+-(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues;
+//-(BOOL) sendAsyncXHRToURL: (NSURL *)url postValues:(NSDictionary *)postValues; // implement soon!
 
 @end

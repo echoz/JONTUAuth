@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1821A912126C2900950B36 /* RegexKitLite.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3F1821A712126C2900950B36 /* RegexKitLite.h */; };
+		3F1821AA12126C2900950B36 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1821A812126C2900950B36 /* RegexKitLite.m */; };
+		3F9D538412127106008C37EB /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9D538312127106008C37EB /* libicucore.dylib */; };
 		3FAA36AA12115A1D00F26779 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAA36A912115A1D00F26779 /* Foundation.framework */; };
 		3FAA36AC12115A1D00F26779 /* JONTUAuth.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FAA36AB12115A1D00F26779 /* JONTUAuth.1 */; };
 		3FAA36AE12115A1D00F26779 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA36AD12115A1D00F26779 /* main.m */; };
@@ -23,12 +26,16 @@
 			files = (
 				3FAA36AC12115A1D00F26779 /* JONTUAuth.1 in CopyFiles */,
 				3FAA36B812115A3400F26779 /* JONTUAuth.h in CopyFiles */,
+				3F1821A912126C2900950B36 /* RegexKitLite.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F1821A712126C2900950B36 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		3F1821A812126C2900950B36 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		3F9D538312127106008C37EB /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		3FAA36A512115A1C00F26779 /* JONTUAuth */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JONTUAuth; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAA36A912115A1D00F26779 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3FAA36AB12115A1D00F26779 /* JONTUAuth.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = JONTUAuth.1; sourceTree = "<group>"; };
@@ -44,15 +51,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FAA36AA12115A1D00F26779 /* Foundation.framework in Frameworks */,
+				3F9D538412127106008C37EB /* libicucore.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F1821A612126C0500950B36 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				3F1821A712126C2900950B36 /* RegexKitLite.h */,
+				3F1821A812126C2900950B36 /* RegexKitLite.m */,
+			);
+			name = RegexKitLite;
+			sourceTree = "<group>";
+		};
 		3FAA369812115A1C00F26779 = {
 			isa = PBXGroup;
 			children = (
+				3F1821A612126C0500950B36 /* RegexKitLite */,
 				3FAA36BA12115A3A00F26779 /* Classes */,
 				3FAA369F12115A1C00F26779 /* Source */,
 				3FAA36A012115A1C00F26779 /* Documentation */,
@@ -90,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				3FAA36A912115A1D00F26779 /* Foundation.framework */,
+				3F9D538312127106008C37EB /* libicucore.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -138,7 +157,6 @@
 			isa = PBXProject;
 			buildConfigurationList = 3FAA369D12115A1C00F26779 /* Build configuration list for PBXProject "JONTUAuth" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -160,6 +178,7 @@
 			files = (
 				3FAA36AE12115A1D00F26779 /* main.m in Sources */,
 				3FAA36B912115A3400F26779 /* JONTUAuth.m in Sources */,
+				3F1821AA12126C2900950B36 /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +224,9 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JONTUAuth_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INSTALL_PATH = /usr/local/bin;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = JONTUAuth;
 			};
 			name = Debug;
@@ -221,6 +242,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = JONTUAuth_Prefix.pch;
 				INSTALL_PATH = /usr/local/bin;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = JONTUAuth;
 			};
 			name = Release;
