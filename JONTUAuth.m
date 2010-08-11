@@ -254,8 +254,6 @@
 		}		
 	}
 
-	NSLog(@"Sent Request: %@", request);
-	
 	return recvData;
 }
 
