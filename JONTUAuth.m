@@ -70,7 +70,7 @@
 		[postvalues setValue:pass forKey:@"PIN"];
 		[postvalues setValue:domain forKey:@"Domain"];
 		
-		NSString *test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:AUTH_URL] postValues:postvalues] encoding:NSUTF8StringEncoding];
+		NSString *test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:AUTH_URL] postValues:postvalues withToken:NO] encoding:NSUTF8StringEncoding];
 		
 		if ([test rangeOfString:@"may be invalid or has expired"].location == NSNotFound) {
 			auth = YES;
@@ -78,7 +78,7 @@
 			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",self.user,self.pass]];
 			
 			[test release], test = nil;
-			test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:finalTokenURL] postValues:nil] encoding:NSUTF8StringEncoding];
+			test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:finalTokenURL] postValues:nil withToken:NO] encoding:NSUTF8StringEncoding];
 			studentid = [[test stringByMatching:TOKEN_REGEX capture:1] retain]; // p1
 			secretToken = [[test stringByMatching:TOKEN_REGEX capture:2] retain]; // p2
 			
@@ -91,20 +91,18 @@
 	return auth;
 }
 
--(NSMutableURLRequest *)prepareURLRequestUsing:(NSDictionary *)postValues toURL:(NSURL *)url {
+-(NSMutableURLRequest *)prepareURLRequestUsing:(NSDictionary *)postValues toURL:(NSURL *)url withToken:(BOOL)token {
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	NSMutableDictionary *mutPostValues = [postValues mutableCopy];
 	[request setURL:url];
 	[request setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
 	
+	NSMutableString *post = [NSMutableString string];
 	if (postValues != nil) {
 		
-		NSMutableString *post = [NSMutableString string];
-		if ((auth) && (![postValues valueForKey:@"p1"])) {
-			[mutPostValues setObject:studentid forKey:@"p1"];
-		}
-		if ((auth) && (![postValues valueForKey:@"p2"])) {
-			[mutPostValues setObject:secretToken forKey:@"p2"];
+		if ((auth) && (token)) {
+			[mutPostValues setObject:studentid forKey:@"P1"];
+			[mutPostValues setObject:secretToken forKey:@"P2"];
 		}
 		
 		for (NSString *key in mutPostValues) {
@@ -113,13 +111,16 @@
 			}
 			[post appendFormat:@"%@=%@",key,[mutPostValues objectForKey:key]];
 		}
-
+	}
+	
+	if ((token) || (postValues != nil)) {
 		NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
 		NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
 		[request setHTTPMethod:@"POST"];
 		[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
 		[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
 		[request setHTTPBody:postData];
+		
 	}
 	
 	[request setValue:HTTP_USER_AGENT forHTTPHeaderField:@"User-Agent"];
@@ -134,7 +135,7 @@
 
 /* 
  
- this for later implementation if we really need a run loop based way of getting url
+ this for a later implementation if we really need a run loop based way of getting url
  
 -(BOOL) sendAsyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues {
 
@@ -208,7 +209,6 @@
 
 -(NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse
 {
-	NSLog(@"Redirect recieved");
     NSURLRequest *newRequest = request;
     if (redirectResponse) {
         newRequest = nil;
@@ -219,7 +219,6 @@
 -(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
 {
 	
-	NSLog(@"HELLO");
     if ([challenge previousFailureCount] == 0) {
         NSURLCredential *newCredential;
         newCredential = [NSURLCredential credentialWithUser:self.user
@@ -236,9 +235,9 @@
 }
  */
 
--(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues {
+-(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token {
     
-	NSMutableURLRequest *request = [self prepareURLRequestUsing:postValues toURL:url];
+	NSMutableURLRequest *request = [self prepareURLRequestUsing:postValues toURL:url withToken:token];
 	//	[request setTimeoutInterval:60.0];
     NSHTTPURLResponse *response;
 	

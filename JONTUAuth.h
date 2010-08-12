@@ -47,7 +47,7 @@
 @property (readonly) NSString *studentid;
 -(BOOL)auth;
 -(BOOL)authWithRefresh:(BOOL)refresh;
--(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues;
+-(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token;
 //-(BOOL) sendAsyncXHRToURL: (NSURL *)url postValues:(NSDictionary *)postValues; // implement soon!
 
 @end
