@@ -41,8 +41,8 @@
 		3FAA36AB12115A1D00F26779 /* JONTUAuth.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = JONTUAuth.1; sourceTree = "<group>"; };
 		3FAA36AD12115A1D00F26779 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FAA36B012115A1D00F26779 /* JONTUAuth_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JONTUAuth_Prefix.pch; sourceTree = "<group>"; };
-		3FAA36B612115A3400F26779 /* JONTUAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JONTUAuth.h; path = /Users/jeremy/Desktop/JONTUAuth/JONTUAuth.h; sourceTree = "<absolute>"; };
-		3FAA36B712115A3400F26779 /* JONTUAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JONTUAuth.m; path = /Users/jeremy/Desktop/JONTUAuth/JONTUAuth.m; sourceTree = "<absolute>"; };
+		3FAA36B612115A3400F26779 /* JONTUAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUAuth.h; sourceTree = "<group>"; };
+		3FAA36B712115A3400F26779 /* JONTUAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTUAuth.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
