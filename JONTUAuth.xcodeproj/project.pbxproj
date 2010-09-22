@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F1821A912126C2900950B36 /* RegexKitLite.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3F1821A712126C2900950B36 /* RegexKitLite.h */; };
 		3F1821AA12126C2900950B36 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1821A812126C2900950B36 /* RegexKitLite.m */; };
+		3F83416C124A68AB00D3FC1F /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F834169124A68AB00D3FC1F /* NSString+HTML.m */; };
+		3F83418D124A6B2100D3FC1F /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F83418C124A6B2100D3FC1F /* GTMNSString+HTML.m */; };
 		3F9D538412127106008C37EB /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F9D538312127106008C37EB /* libicucore.dylib */; };
 		3FAA36AA12115A1D00F26779 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FAA36A912115A1D00F26779 /* Foundation.framework */; };
 		3FAA36AC12115A1D00F26779 /* JONTUAuth.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3FAA36AB12115A1D00F26779 /* JONTUAuth.1 */; };
@@ -35,6 +37,11 @@
 /* Begin PBXFileReference section */
 		3F1821A712126C2900950B36 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		3F1821A812126C2900950B36 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		3F834168124A68AB00D3FC1F /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTML.h"; path = "MWFeedParser/Classes/NSString+HTML.h"; sourceTree = "<group>"; };
+		3F834169124A68AB00D3FC1F /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTML.m"; path = "MWFeedParser/Classes/NSString+HTML.m"; sourceTree = "<group>"; };
+		3F83418A124A6B2100D3FC1F /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = MWFeedParser/Classes/GTMDefines.h; sourceTree = "<group>"; };
+		3F83418B124A6B2100D3FC1F /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "MWFeedParser/Classes/GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		3F83418C124A6B2100D3FC1F /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "MWFeedParser/Classes/GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		3F9D538312127106008C37EB /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		3FAA36A512115A1C00F26779 /* JONTUAuth */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JONTUAuth; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FAA36A912115A1D00F26779 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,9 +74,22 @@
 			name = RegexKitLite;
 			sourceTree = "<group>";
 		};
+		3F834165124A688800D3FC1F /* NSString additions */ = {
+			isa = PBXGroup;
+			children = (
+				3F834168124A68AB00D3FC1F /* NSString+HTML.h */,
+				3F834169124A68AB00D3FC1F /* NSString+HTML.m */,
+				3F83418A124A6B2100D3FC1F /* GTMDefines.h */,
+				3F83418B124A6B2100D3FC1F /* GTMNSString+HTML.h */,
+				3F83418C124A6B2100D3FC1F /* GTMNSString+HTML.m */,
+			);
+			name = "NSString additions";
+			sourceTree = "<group>";
+		};
 		3FAA369812115A1C00F26779 = {
 			isa = PBXGroup;
 			children = (
+				3F834165124A688800D3FC1F /* NSString additions */,
 				3F1821A612126C0500950B36 /* RegexKitLite */,
 				3FAA36BA12115A3A00F26779 /* Classes */,
 				3FAA369F12115A1C00F26779 /* Source */,
@@ -179,6 +199,8 @@
 				3FAA36AE12115A1D00F26779 /* main.m in Sources */,
 				3FAA36B912115A3400F26779 /* JONTUAuth.m in Sources */,
 				3F1821AA12126C2900950B36 /* RegexKitLite.m in Sources */,
+				3F83416C124A68AB00D3FC1F /* NSString+HTML.m in Sources */,
+				3F83418D124A6B2100D3FC1F /* GTMNSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +214,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -206,7 +228,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;

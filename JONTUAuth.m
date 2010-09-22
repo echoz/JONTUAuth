@@ -29,6 +29,7 @@
 
 #import "JONTUAuth.h"
 #import "RegexKitLite.h"
+#import "NSString+HTML.h"
 
 #define HTTP_USER_AGENT @"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us) AppleWebKit/533.4+ (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7"
 #define AUTH_URL @"https://sso.wis.ntu.edu.sg/webexe88/owa/sso.asp"
@@ -66,16 +67,16 @@
 		
 		NSMutableDictionary *postvalues = [NSMutableDictionary dictionary];
 		
-		[postvalues setValue:user forKey:@"UserName"];
-		[postvalues setValue:pass forKey:@"PIN"];
-		[postvalues setValue:domain forKey:@"Domain"];
+		[postvalues setValue:[self.user stringByEncodingHTMLEntities] forKey:@"UserName"];
+		[postvalues setValue:[self.pass stringByEncodingHTMLEntities] forKey:@"PIN"];
+		[postvalues setValue:self.domain forKey:@"Domain"];
 		
 		NSString *test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:AUTH_URL] postValues:postvalues withToken:NO] encoding:NSUTF8StringEncoding];
 		
 		if ([test rangeOfString:@"may be invalid or has expired"].location == NSNotFound) {
 			auth = YES;
 			
-			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",self.user,self.pass]];
+			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",[self.user stringByEncodingHTMLEntities],[self.pass stringByEncodingHTMLEntities]]];
 			
 			[test release], test = nil;
 			test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:finalTokenURL] postValues:nil withToken:NO] encoding:NSUTF8StringEncoding];
