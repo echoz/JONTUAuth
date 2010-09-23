@@ -35,6 +35,7 @@
 #define AUTH_URL @"https://sso.wis.ntu.edu.sg/webexe88/owa/sso.asp"
 #define TOKEN_URL @"https://sso.wis.ntu.edu.sg/webexe88/ntlm/sso_express.asp"
 #define TOKEN_REGEX @"<input type=\"hidden\" name=\"p1\" value=\"(.*)\">\\s*<input type=\"hidden\" name=\"p2\" value=\"(.*)\">"
+#define LEGAL_CHAR_TOESCAPE @" ()<>#%{}|\\^~[]`;/?:@=&$"
 
 @implementation JONTUAuth
 
@@ -58,6 +59,10 @@
 	}
 }
 
++(NSString *)escapeString:(NSString *) str {
+	return [(NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)str, NULL, CFSTR(" ()<>#%{}|\\^~[]`;/?:@=&$"), kCFStringEncodingUTF8) autorelease];
+}
+
 -(BOOL)authWithRefresh:(BOOL)refresh {
 	// sso_express provides the real authentication variables on top of the cookies.
 	// must grab p1 and p2.
@@ -67,16 +72,18 @@
 		
 		NSMutableDictionary *postvalues = [NSMutableDictionary dictionary];
 		
-		[postvalues setValue:[[self.user stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByEncodingHTMLEntities] forKey:@"UserName"];
-		[postvalues setValue:[[self.pass stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByEncodingHTMLEntities] forKey:@"PIN"];
+		[postvalues setValue:[JONTUAuth escapeString:self.user] forKey:@"UserName"];
+		[postvalues setValue:[JONTUAuth escapeString:self.pass] forKey:@"PIN"];
 		[postvalues setValue:self.domain forKey:@"Domain"];
+		
+		NSLog(@"%@",postvalues);
 		
 		NSString *test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:AUTH_URL] postValues:postvalues withToken:NO] encoding:NSUTF8StringEncoding];
 		
 		if ([test rangeOfString:@"may be invalid or has expired"].location == NSNotFound) {
 			auth = YES;
 			
-			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",[[self.user stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByEncodingHTMLEntities],[[self.pass stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByEncodingHTMLEntities]]];
+			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",[JONTUAuth escapeString:self.user],[JONTUAuth escapeString:self.pass]]];
 			
 			[test release], test = nil;
 			test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:finalTokenURL] postValues:nil withToken:NO] encoding:NSUTF8StringEncoding];
