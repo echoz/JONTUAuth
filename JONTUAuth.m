@@ -59,7 +59,7 @@
 	}
 }
 
-+(NSString *)escapeString:(NSString *) str {
+-(NSString *)escapeString:(NSString *) str {
 	return [(NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)str, NULL, CFSTR(" ()<>#%{}|\\^~[]`;/?:@=&$"), kCFStringEncodingUTF8) autorelease];
 }
 
@@ -72,18 +72,16 @@
 		
 		NSMutableDictionary *postvalues = [NSMutableDictionary dictionary];
 		
-		[postvalues setValue:[JONTUAuth escapeString:self.user] forKey:@"UserName"];
-		[postvalues setValue:[JONTUAuth escapeString:self.pass] forKey:@"PIN"];
+		[postvalues setValue:[self escapeString:self.user] forKey:@"UserName"];
+		[postvalues setValue:[self escapeString:self.pass] forKey:@"PIN"];
 		[postvalues setValue:self.domain forKey:@"Domain"];
-		
-		NSLog(@"%@",postvalues);
 		
 		NSString *test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:AUTH_URL] postValues:postvalues withToken:NO] encoding:NSUTF8StringEncoding];
 		
 		if ([test rangeOfString:@"may be invalid or has expired"].location == NSNotFound) {
 			auth = YES;
 			
-			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",[JONTUAuth escapeString:self.user],[JONTUAuth escapeString:self.pass]]];
+			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",[self escapeString:self.user],[self escapeString:self.pass]]];
 			
 			[test release], test = nil;
 			test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:finalTokenURL] postValues:nil withToken:NO] encoding:NSUTF8StringEncoding];
