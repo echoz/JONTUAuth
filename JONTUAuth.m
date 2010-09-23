@@ -67,8 +67,8 @@
 		
 		NSMutableDictionary *postvalues = [NSMutableDictionary dictionary];
 		
-		[postvalues setValue:[self.user stringByEncodingHTMLEntities] forKey:@"UserName"];
-		[postvalues setValue:[self.pass stringByEncodingHTMLEntities] forKey:@"PIN"];
+		[postvalues setValue:[[self.user stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByEncodingHTMLEntities] forKey:@"UserName"];
+		[postvalues setValue:[[self.pass stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByEncodingHTMLEntities] forKey:@"PIN"];
 		[postvalues setValue:self.domain forKey:@"Domain"];
 		
 		NSString *test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:AUTH_URL] postValues:postvalues withToken:NO] encoding:NSUTF8StringEncoding];
@@ -76,7 +76,7 @@
 		if ([test rangeOfString:@"may be invalid or has expired"].location == NSNotFound) {
 			auth = YES;
 			
-			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",[self.user stringByEncodingHTMLEntities],[self.pass stringByEncodingHTMLEntities]]];
+			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",[[self.user stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByEncodingHTMLEntities],[[self.pass stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] stringByEncodingHTMLEntities]]];
 			
 			[test release], test = nil;
 			test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:finalTokenURL] postValues:nil withToken:NO] encoding:NSUTF8StringEncoding];
